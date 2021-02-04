@@ -1,3 +1,3 @@
 int suma(){
-	return 1;
+	return 10;
 }
