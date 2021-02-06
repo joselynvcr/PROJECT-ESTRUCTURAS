@@ -11,5 +11,6 @@ int main(int argc, char** argv) {
 	cout<<"\nANDERSON";
 	cout<<"\nThalia";
 	cout<<"\nresta";
-		return 0;
+	cout<<"Multiplicacion: "<<2*4<<endl;
+	return 0;
 }
