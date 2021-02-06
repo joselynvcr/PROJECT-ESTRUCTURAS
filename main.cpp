@@ -8,6 +8,7 @@ int main(int argc, char** argv) {
 	cout<<"New create";
 	cout<<suma();
 	cout<<"\nANDERSON";
+	cout<<"\nThalia";
 	casdfadfasdf
 		return 0;
 }
