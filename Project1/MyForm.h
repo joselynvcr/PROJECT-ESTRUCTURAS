@@ -137,8 +137,10 @@ private: System::Void nombre_Click(System::Object^ sender, System::EventArgs^ e)
 
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	string nombre = generarNombre();
-	Project1::MyForm::nombre->Text = nombre;
+	String^ nombres = generarNombre();
+	String^ apellidos = generarApellido();
+	nombre->Text = nombres;
+	apellido->Text = apellidos;
 }
 };
 }
