@@ -1,6 +1,6 @@
 ﻿  MyForm.cpp
-C:\Users\ANDERSON\Desktop\CICLO 3\ESTRUCTURA\PRUEBA\Project1\nombresRepartidor.h(11,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-C:\Users\ANDERSON\Desktop\CICLO 3\ESTRUCTURA\PRUEBA\Project1\MyForm.h(141,1): error C2664: 'void System::Windows::Forms::Control::Text::set(System::String ^)': el argumento 1 no puede convertirse de 'std::string' a 'System::String ^'
-C:\Users\ANDERSON\Desktop\CICLO 3\ESTRUCTURA\PRUEBA\Project1\MyForm.h(141,1): message : No hay un operador de conversión definida por el usuario disponible, o
-C:\Users\ANDERSON\Desktop\CICLO 3\ESTRUCTURA\PRUEBA\Project1\MyForm.h(141,35): message : No hay disponible ningún operador de conversión definido por el usuario que pueda realizar esta conversión, o bien no se puede llamar al operador
-C:\Users\ANDERSON\Desktop\CICLO 3\ESTRUCTURA\PRUEBA\Project1\MyForm.h(141): message : vea la declaración de 'System::Windows::Forms::Control::Text::set'
+D:\ESTRUCTURAS DE DATOS\PROJECTO-ESTRUCTURAS\PROJECT-ESTRUCTURAS\Project1\nombresRepartidor.h(11,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+D:\ESTRUCTURAS DE DATOS\PROJECTO-ESTRUCTURAS\PROJECT-ESTRUCTURAS\Project1\MyForm.h(141,1): error C2664: 'void System::Windows::Forms::Control::Text::set(System::String ^)': el argumento 1 no puede convertirse de 'std::string' a 'System::String ^'
+D:\ESTRUCTURAS DE DATOS\PROJECTO-ESTRUCTURAS\PROJECT-ESTRUCTURAS\Project1\MyForm.h(141,1): message : No hay un operador de conversión definida por el usuario disponible, o
+D:\ESTRUCTURAS DE DATOS\PROJECTO-ESTRUCTURAS\PROJECT-ESTRUCTURAS\Project1\MyForm.h(141,35): message : No hay disponible ningún operador de conversión definido por el usuario que pueda realizar esta conversión, o bien no se puede llamar al operador
+D:\ESTRUCTURAS DE DATOS\PROJECTO-ESTRUCTURAS\PROJECT-ESTRUCTURAS\Project1\MyForm.h(141): message : vea la declaración de 'System::Windows::Forms::Control::Text::set'
