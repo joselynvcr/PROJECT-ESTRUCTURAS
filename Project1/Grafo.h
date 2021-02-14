@@ -56,7 +56,7 @@ int dijkstra(int G[max][max], int n, int startnode, int lug)
 {
 	int costo[max][max], distancia[max], pred[max];
 	int visited[max], count, mindistancia, siguienteNodo, i, j;
-
+	//Arma matriz 
 	for (i = 0; i < n; i++) {
 		for (j = 0; j < n; j++) {
 			if (G[i][j] == 0)

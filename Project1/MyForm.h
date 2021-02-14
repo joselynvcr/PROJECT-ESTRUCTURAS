@@ -41,7 +41,7 @@ namespace Project1 {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::ComboBox^ comboBox1;
 	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::Button^ button2;
+
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::Label^ recorrido;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
@@ -70,7 +70,6 @@ namespace Project1 {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->recorrido = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
@@ -126,7 +125,7 @@ namespace Project1 {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(836, 64);
+			this->button1->Location = System::Drawing::Point(814, 76);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(114, 43);
 			this->button1->TabIndex = 5;
@@ -167,6 +166,7 @@ namespace Project1 {
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(121, 21);
 			this->comboBox1->TabIndex = 8;
+			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::comboBox1_SelectedIndexChanged);
 			// 
 			// label4
 			// 
@@ -179,22 +179,12 @@ namespace Project1 {
 			this->label4->TabIndex = 9;
 			this->label4->Text = L"Destino";
 			// 
-			// button2
-			// 
-			this->button2->Location = System::Drawing::Point(836, 164);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(114, 42);
-			this->button2->TabIndex = 10;
-			this->button2->Text = L"Generar Camino";
-			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
-			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(615, 45);
+			this->label5->Location = System::Drawing::Point(557, 47);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(123, 17);
 			this->label5->TabIndex = 11;
@@ -203,7 +193,7 @@ namespace Project1 {
 			// recorrido
 			// 
 			this->recorrido->AutoSize = true;
-			this->recorrido->Location = System::Drawing::Point(371, 238);
+			this->recorrido->Location = System::Drawing::Point(706, 49);
 			this->recorrido->Name = L"recorrido";
 			this->recorrido->Size = System::Drawing::Size(0, 13);
 			this->recorrido->TabIndex = 12;
@@ -211,7 +201,7 @@ namespace Project1 {
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(49, 271);
+			this->pictureBox1->Location = System::Drawing::Point(40, 296);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(888, 527);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -222,11 +212,10 @@ namespace Project1 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1004, 819);
+			this->ClientSize = System::Drawing::Size(979, 839);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->recorrido);
 			this->Controls->Add(this->label5);
-			this->Controls->Add(this->button2);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->label3);
@@ -261,7 +250,8 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	srand(time(NULL));
 }
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+
+private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	String^ destino = comboBox1->Text;
 	int generar = GenerarCamino(destino);
 	recorrido->Text = generar.ToString();
