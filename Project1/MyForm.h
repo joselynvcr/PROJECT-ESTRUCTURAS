@@ -124,6 +124,7 @@ namespace Project1 {
 			this->Controls->Add(this->label);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -137,8 +138,13 @@ private: System::Void nombre_Click(System::Object^ sender, System::EventArgs^ e)
 
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	string nombre = generarNombre();
-	Project1::MyForm::nombre->Text = nombre;
+	String^ nombres = generarNombre();
+	String^ apellidos = generarApellido();
+	nombre->Text = nombres;
+	apellido->Text = apellidos;
+}
+private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	srand(time(NULL));
 }
 };
 }

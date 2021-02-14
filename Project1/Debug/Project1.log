@@ -1,6 +1,5 @@
 ﻿  MyForm.cpp
-D:\ESTRUCTURAS DE DATOS\PROJECTO-ESTRUCTURAS\PROJECT-ESTRUCTURAS\Project1\nombresRepartidor.h(11,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-D:\ESTRUCTURAS DE DATOS\PROJECTO-ESTRUCTURAS\PROJECT-ESTRUCTURAS\Project1\MyForm.h(141,1): error C2664: 'void System::Windows::Forms::Control::Text::set(System::String ^)': el argumento 1 no puede convertirse de 'std::string' a 'System::String ^'
-D:\ESTRUCTURAS DE DATOS\PROJECTO-ESTRUCTURAS\PROJECT-ESTRUCTURAS\Project1\MyForm.h(141,1): message : No hay un operador de conversión definida por el usuario disponible, o
-D:\ESTRUCTURAS DE DATOS\PROJECTO-ESTRUCTURAS\PROJECT-ESTRUCTURAS\Project1\MyForm.h(141,35): message : No hay disponible ningún operador de conversión definido por el usuario que pueda realizar esta conversión, o bien no se puede llamar al operador
-D:\ESTRUCTURAS DE DATOS\PROJECTO-ESTRUCTURAS\PROJECT-ESTRUCTURAS\Project1\MyForm.h(141): message : vea la declaración de 'System::Windows::Forms::Control::Text::set'
+D:\ESTRUCTURAS DE DATOS\PROJECTO-ESTRUCTURAS\PROJECT-ESTRUCTURAS\Project1\nombresRepartidor.h(46,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+D:\ESTRUCTURAS DE DATOS\PROJECTO-ESTRUCTURAS\PROJECT-ESTRUCTURAS\Project1\MyForm.h(147,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  MyForm.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
+  Project1.vcxproj -> D:\ESTRUCTURAS DE DATOS\PROJECTO-ESTRUCTURAS\PROJECT-ESTRUCTURAS\Project1\Debug\Project1.exe
