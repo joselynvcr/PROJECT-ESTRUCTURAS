@@ -9,7 +9,6 @@ using namespace std;
 
 String^ generarNombre() {
 
-	
 	int opc;
 	String^ nombre;
 	opc = rand() % (7 - 1 + 1) + 1;
