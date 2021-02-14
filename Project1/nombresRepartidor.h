@@ -9,6 +9,10 @@ using namespace std;
 
 String^ generarNombre() {
 
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 090ac99cfdc77d8bcd2326b4234eca6ceef4d7ab
 	int opc;
 	String^ nombre;
 	opc = rand() % (7 - 1 + 1) + 1;
@@ -38,7 +42,6 @@ String^ generarNombre() {
 	}
 	return nombre;
 }
-
 
 String^ generarApellido() {
 
@@ -71,4 +74,36 @@ String^ generarApellido() {
 		break;
 	}
 	return apellido;
+}
+String^ generarProducto() {
+
+	srand(time(NULL));
+	int opc;
+	String^ producto;
+	opc = rand() % (7 - 1 + 1) + 1;
+	switch (opc)
+	{
+	case 1:
+		producto = "Pollito a la brasa";
+		break;
+	case 2:
+		producto = "Mostrito";
+		break;
+	case 3:
+		producto = "Kentucky";
+		break;
+	case 4:
+		producto = "Popeyes";
+		break;
+	case 5:
+		producto = "Lomo saltado";
+		break;
+	case 6:
+		producto = "Aeropuerto";
+		break;
+	case 7:
+		producto = "Tallarines Verdes";
+		break;
+	}
+	return producto;
 }
