@@ -35,6 +35,9 @@ namespace Project1 {
 	private: System::Windows::Forms::Label^ nombre;
 	private: System::Windows::Forms::Label^ apellido;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ lbProdcuto;
+
 
 
 	protected:
@@ -55,6 +58,8 @@ namespace Project1 {
 			this->nombre = (gcnew System::Windows::Forms::Label());
 			this->apellido = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->lbProdcuto = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// label
@@ -64,9 +69,9 @@ namespace Project1 {
 				static_cast<System::Byte>(0)));
 			this->label->Location = System::Drawing::Point(37, 45);
 			this->label->Name = L"label";
-			this->label->Size = System::Drawing::Size(62, 17);
+			this->label->Size = System::Drawing::Size(66, 17);
 			this->label->TabIndex = 0;
-			this->label->Text = L"Nombre:";
+			this->label->Text = L"Nombre :";
 			// 
 			// label2
 			// 
@@ -75,9 +80,9 @@ namespace Project1 {
 				static_cast<System::Byte>(0)));
 			this->label2->Location = System::Drawing::Point(37, 102);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(62, 17);
+			this->label2->Size = System::Drawing::Size(66, 17);
 			this->label2->TabIndex = 2;
-			this->label2->Text = L"Apellido:";
+			this->label2->Text = L"Apellido :";
 			// 
 			// nombre
 			// 
@@ -104,19 +109,44 @@ namespace Project1 {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(288, 77);
+			this->button1->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+			this->button1->Location = System::Drawing::Point(744, 65);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(179, 72);
 			this->button1->TabIndex = 5;
-			this->button1->Text = L"button1";
-			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Text = L"REGISTRAR PEDIDO";
+			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(37, 166);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(77, 17);
+			this->label1->TabIndex = 6;
+			this->label1->Text = L"Producto : ";
+			// 
+			// lbProdcuto
+			// 
+			this->lbProdcuto->AutoSize = true;
+			this->lbProdcuto->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbProdcuto->Location = System::Drawing::Point(163, 166);
+			this->lbProdcuto->Name = L"lbProdcuto";
+			this->lbProdcuto->Size = System::Drawing::Size(64, 17);
+			this->lbProdcuto->TabIndex = 7;
+			this->lbProdcuto->Text = L"producto";
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1022, 562);
+			this->Controls->Add(this->lbProdcuto);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->apellido);
 			this->Controls->Add(this->nombre);
@@ -140,8 +170,10 @@ private: System::Void nombre_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ nombres = generarNombre();
 	String^ apellidos = generarApellido();
+	String^ producto= generarProducto();
 	nombre->Text = nombres;
 	apellido->Text = apellidos;
+	lbProdcuto->Text = producto;
 }
 private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	srand(time(NULL));

@@ -1,0 +1,5 @@
+D:\Windows\Usuario\Desktop\TF\Project1\x64\Debug\Project1.vcxprojAssemblyReference.cache
+D:\Windows\Usuario\Desktop\TF\Project1\x64\Debug\Project1.MyForm.resources
+D:\Windows\Usuario\Desktop\TF\Project1\x64\Debug\Project1.vcxproj.GenerateResource.cache
+D:\Windows\Usuario\Desktop\TF\Project1\x64\Debug\Project1.exe
+D:\Windows\Usuario\Desktop\TF\Project1\x64\Debug\Project1.pdb
