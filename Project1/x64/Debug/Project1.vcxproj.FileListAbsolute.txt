@@ -3,3 +3,8 @@ D:\Windows\Usuario\Desktop\TF\Project1\x64\Debug\Project1.MyForm.resources
 D:\Windows\Usuario\Desktop\TF\Project1\x64\Debug\Project1.vcxproj.GenerateResource.cache
 D:\Windows\Usuario\Desktop\TF\Project1\x64\Debug\Project1.exe
 D:\Windows\Usuario\Desktop\TF\Project1\x64\Debug\Project1.pdb
+D:\ESTRUCTURAS DE DATOS\PROJECTO-ESTRUCTURAS\PROJECT-ESTRUCTURAS\Project1\x64\Debug\Project1.vcxprojAssemblyReference.cache
+D:\ESTRUCTURAS DE DATOS\PROJECTO-ESTRUCTURAS\PROJECT-ESTRUCTURAS\Project1\x64\Debug\Project1.MyForm.resources
+D:\ESTRUCTURAS DE DATOS\PROJECTO-ESTRUCTURAS\PROJECT-ESTRUCTURAS\Project1\x64\Debug\Project1.vcxproj.GenerateResource.cache
+D:\ESTRUCTURAS DE DATOS\PROJECTO-ESTRUCTURAS\PROJECT-ESTRUCTURAS\Project1\x64\Debug\Project1.exe
+D:\ESTRUCTURAS DE DATOS\PROJECTO-ESTRUCTURAS\PROJECT-ESTRUCTURAS\Project1\x64\Debug\Project1.pdb

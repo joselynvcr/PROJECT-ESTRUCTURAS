@@ -1,6 +1,8 @@
 ﻿  MyForm.cpp
-D:\Windows\Usuario\Desktop\TF\Project1\nombresRepartidor.h(45,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-D:\Windows\Usuario\Desktop\TF\Project1\nombresRepartidor.h(77,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-D:\Windows\Usuario\Desktop\TF\Project1\MyForm.h(179,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+D:\ESTRUCTURAS DE DATOS\PROJECTO-ESTRUCTURAS\PROJECT-ESTRUCTURAS\Project1\nombresRepartidor.h(45,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+D:\ESTRUCTURAS DE DATOS\PROJECTO-ESTRUCTURAS\PROJECT-ESTRUCTURAS\Project1\nombresRepartidor.h(77,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+D:\ESTRUCTURAS DE DATOS\PROJECTO-ESTRUCTURAS\PROJECT-ESTRUCTURAS\Project1\MyForm.h(179,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  .NETFramework,Version=v4.6.1.AssemblyAttributes.cpp
+  Generando código...
   MyForm.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
-  Project1.vcxproj -> D:\Windows\Usuario\Desktop\TF\Project1\x64\Debug\Project1.exe
+  Project1.vcxproj -> D:\ESTRUCTURAS DE DATOS\PROJECTO-ESTRUCTURAS\PROJECT-ESTRUCTURAS\Project1\x64\Debug\Project1.exe
