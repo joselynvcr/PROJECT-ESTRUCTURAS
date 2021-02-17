@@ -8,8 +8,8 @@ using namespace std;
 
 using namespace System;
 using namespace std;
-int dijkstra(int G[max][max], int n, int startnode,int lug);
 
+int dijkstra(int G[max][max], int n, int startnode,int lug);
 int HallarDestino(String^ lugar) {
 	
 	if (lugar == "Plaza Grau")
@@ -31,12 +31,12 @@ int HallarDestino(String^ lugar) {
 	if (lugar == "Plaza Ramon Castilla")
 		return 9;
 }
-
+int startnode = 0;
 int GenerarCamino(String^ destino) {
 	int n = 10;
 	int lug = HallarDestino(destino);
 	int G[max][max] = { 
-	{	0	,	4	,	5	,	6	,	0	,	0	,	0	,	0	,	0	,	0	}	,
+		{	0	,	4	,	5	,	6	,	0	,	0	,	0	,	0	,	0	,	0	}	,
 	{	4	,	0	,	0	,	0	,	0	,	0	,	0	,	0	,	0	,	0	}	,
 	{	5	,	0	,	0	,	0	,	10	,	0	,	0	,	0	,	0	,	0	}	,
 	{	6	,	0	,	0	,	0	,	7	,	5	,	0	,	3	,	0	,	0	}	,
@@ -47,16 +47,17 @@ int GenerarCamino(String^ destino) {
 	{	0	,	0	,	0	,	0	,	0	,	0	,	3	,	8	,	0	,	0	}	,
 	{	0	,	0	,	0	,	0	,	3	,	0	,	0	,	0	,	0	,	0	} };
 
-	int startnode = 0;
+	
 	return dijkstra(G, n, startnode,lug);
 }
 
 
+int pred[max];
 int dijkstra(int G[max][max], int n, int startnode, int lug)
 {
-	int costo[max][max], distancia[max], pred[max];
+	int costo[max][max], distancia[max];//, pred[max];
 	int visited[max], count, mindistancia, siguienteNodo, i, j;
-	//Arma matriz 
+	//Armar matriz 
 	for (i = 0; i < n; i++) {
 		for (j = 0; j < n; j++) {
 			if (G[i][j] == 0)
@@ -65,7 +66,6 @@ int dijkstra(int G[max][max], int n, int startnode, int lug)
 				costo[i][j] = G[i][j];
 		}
 	}
-
 	for (i = 0; i < n; i++)
 	{
 		distancia[i] = costo[startnode][i];
@@ -76,6 +76,7 @@ int dijkstra(int G[max][max], int n, int startnode, int lug)
 	distancia[startnode] = 0;
 	visited[startnode] = 1;
 	count = 1;
+
 	while (count < n - 1)
 	{
 		mindistancia = INFINITY;
@@ -95,6 +96,32 @@ int dijkstra(int G[max][max], int n, int startnode, int lug)
 				}
 		count++;
 	}
+	
 	return distancia[lug];
+}
+
+
+
+//5       //0
+int* AlmacenarCamino(int lug, int startnode, int pred[]) {
+	int *array= new int[max];
+	for (int i = 0; i < max; i++) {
+		array[i] = INFINITY;
+	}
+	int i = lug, j = 0;
+	int x = 0;	
+
+	j = i;
+	array[x]= j;
+	do
+	{
+		x++;
+		j = pred[j];//3				
+		array[x] = j;//3
+		
+	} while (j != startnode);
+
+	
+	return array;
 }
 
