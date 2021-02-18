@@ -4,6 +4,7 @@
 #include <sstream>
 #include "nombresRepartidor.h"
 #include "Grafo.h"
+#include "Mapa.h"
 using namespace std;
 
 namespace Project1 {
@@ -16,20 +17,13 @@ namespace Project1 {
 
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
-	private:
-		Graphics^ g;
-		 int* posx = new int[max];
-		int* posy = new int[max];
-	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Label^ label6;
-	private: System::Windows::Forms::Label^ label7;
 
-		   BufferedGraphics^ buffer;
 	public:
 		MyForm(void)
 		{
 			InitializeComponent();
 			g = this->CreateGraphics();
+			mapa = gcnew Bitmap("mapa.jpeg");
 		}
 	protected:
 		~MyForm()
@@ -40,10 +34,6 @@ namespace Project1 {
 			}
 		}
 	private: System::Windows::Forms::Label^ label;
-
-	protected:
-
-
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ nombre;
 	private: System::Windows::Forms::Label^ apellido;
@@ -52,80 +42,29 @@ namespace Project1 {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::ComboBox^ comboBox1;
 	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Label^ label7;
 	private:
-		int w = 30, h = 40;
+		Graphics^ g;
+		int* posx = new int[max];
+		int* posy = new int[max];
+		Bitmap^ mapa ;
+		BufferedGraphics^ buffer;
+	private:
+		
 		/*void pintarNodoRed(int x, int y, int w, int h) {			
 			g->FillEllipse(Brushes::Red,x,y,w,h );
 		}*/
 		/*void pintarNodoBlack(int x, int y, int w, int h) {			
 			g->FillEllipse(Brushes::Black, x, y, w, h);
 		}*/
-		void pintarLineaRed(int x, int y, int m, int n) {
-			Point p1(x, y), p2(m, n);
-			g->DrawLine(Pens::Red, p1, p2);
-		}
-		void pintarLineaBlack(int x, int y, int m, int n) {
-			Point p1(x, y), p2(m, n);
-			g->DrawLine(Pens::Black, p1, p2);
-		}
-		void asignarPosiciones() {
-			posx[0] = 300;	posy[0] = 652;
-			posx[1] = 406;	posy[1] = 720;
-			posx[2] = 188;	posy[2] = 735;
-			posx[3] = 448;	posy[3] = 520;
-			posx[4] = 142;	posy[4] = 385;
-			posx[5] = 597;	posy[5] = 380;
-			posx[6] = 765;	posy[6] = 422;
-			posx[7] = 568;	posy[7] = 565;
-			posx[8] = 888;	posy[8] = 500;
-			posx[9] = 138;	posy[9] = 310;
-
-			PintarTodoElMapa(posx, posy);
-			g->DrawString("EMPRESA", gcnew System::Drawing::Font("Bernard MT Condensed", 18), Brushes::Black, 270, 625);
-			g->DrawString("PLZ.RAMÓN CASTILLA", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 174, 320);
-			g->DrawString("PLZ.2 DE MAYO", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 55, 398);
-			g->DrawString("PLZ.SAN MARTÍN", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 411, 499);
-			g->DrawString("PLZ.BOLOGNESI", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 88, 750);
-			g->DrawString("PLZ.ARMAS", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 582, 360);
-			g->DrawString("PLZ.LUIS AVELINO", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 551, 605);
-			g->DrawString("PLZ.ITALIA", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 881, 484);
-			g->DrawString("PLZ.GRAU", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 342, 741);
-			g->DrawString("PLZ.BOLIVAR", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 755, 403);
-		}
-		void PintarTodoElMapa(int pos1[], int pos2[]) {			
-			for (int i = 0; i < max; i++) {
-				g->FillEllipse(Brushes::Black, pos1[i], pos2[i], w, h);							
-			}
-			pintarLineaBlack(329, 682, 407, 737);
-			pintarLineaBlack(301, 684, 215, 745);
-			pintarLineaBlack(327, 661, 450, 554);
-			pintarLineaBlack(172, 409, 450, 534);
-			pintarLineaBlack(475, 531, 599, 416);
-			pintarLineaBlack(476, 549, 569, 582);
-			pintarLineaBlack(155, 383, 154, 350);
-			pintarLineaBlack(627, 406, 766, 433);
-			pintarLineaBlack(793, 453, 889, 511);
-			pintarLineaBlack(598, 583, 889, 530);
-			pintarLineaBlack(598, 582, 767, 456);
-
-
-		}
+		
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::Label^ recorrido;
-
-
-
-	protected:
-
-	protected:
-	private:
-		System::ComponentModel::Container ^components;
+	private: System::ComponentModel::IContainer^ components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
-		/// </summary>
+		
 		void InitializeComponent(void)
 		{
 			this->label = (gcnew System::Windows::Forms::Label());
@@ -176,7 +115,7 @@ namespace Project1 {
 			this->nombre->Size = System::Drawing::Size(58, 17);
 			this->nombre->TabIndex = 3;
 			this->nombre->Text = L"Nombre";
-			this->nombre->Click += gcnew System::EventHandler(this, &MyForm::nombre_Click);
+			
 			// 
 			// apellido
 			// 
@@ -288,7 +227,7 @@ namespace Project1 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(979, 839);
+			this->ClientSize = System::Drawing::Size(1071, 882);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->recorrido);
@@ -312,42 +251,29 @@ namespace Project1 {
 		}
 #pragma endregion
 
-
-private: System::Void nombre_Click(System::Object^ sender, System::EventArgs^ e) {	
-
-}
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	nombre->ForeColor = Color::Black;
 	apellido->ForeColor = Color::Black;
-	String^ nombres = generarNombre();
-	String^ apellidos = generarApellido();
-	nombre->Text = nombres;
-	apellido->Text = apellidos;
+	nombre->Text = generarNombre();
+	apellido->Text = generarApellido();
 	Bitmap^ img = gcnew Bitmap("mapa.jpeg");
-	g->DrawImage(img, 42, 300, 900, 500);	
-	asignarPosiciones();
+	g->DrawImage(img, 42, 300, 900, 500);
+	asignarPosiciones(g, posx, posy);
 	Bitmap^ img1 = gcnew Bitmap("empresa.png");
 	g->DrawImage(img1, 279, 654, 80, 40);
 }
 private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	 srand(time(NULL));
-	 g = this->CreateGraphics();
-	 BufferedGraphicsContext^ context = BufferedGraphicsManager::Current;
-	 buffer = context->Allocate(g, this->ClientRectangle);
 }
-
-
 private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	String^ destino = comboBox1->Text;
 	int generar = GenerarCamino(destino);
 	recorrido->Text = generar.ToString();	
-	Bitmap^ img = gcnew Bitmap("mapa.jpeg");
-	g->DrawImage(img, 42, 300, 900, 500);	
 	int* arreglo = new int[max];
 	int x, y;
 	int lug=HallarDestino(destino);
 	arreglo=AlmacenarCamino(lug,startnode,pred);
-	asignarPosiciones();	
+	asignarPosiciones(g, posx, posy);
 	for (int i = max; i >=0;i--) {
 		int opc= arreglo[i];
 		switch (opc)
@@ -401,7 +327,6 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, Sys
 			x = posx[opc]; y = posy[opc];			
 			g->FillEllipse(Brushes::Red, x, y, w, h);
 			g->DrawString("PLZ.RAMÓN CASTILLA", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Red, 174, 320);
-			
 			break;
 		}
 		
@@ -411,41 +336,33 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, Sys
 		int x=arreglo[i];
 		int y=arreglo[i -1];		
 		if ((x == 0) && (y == 1)) {
-			pintarLineaRed(329, 682, 407, 737);
+			pintarLineaRed(g,329, 682, 407, 737);
 		}else if ((x == 0) && (y == 2)) {
-			pintarLineaRed(301, 684, 215, 745);
+			pintarLineaRed(g, 301, 684, 215, 745);
 		}else if ((x == 0) && (y == 3)) {
-			pintarLineaRed(327, 661, 450, 554);
+			pintarLineaRed(g, 327, 661, 450, 554);
 		}else if ((x == 3) && (y == 4)) {
-			pintarLineaRed(172, 409, 450, 534);
+			pintarLineaRed(g, 172, 409, 450, 534);
 		}else if ((x == 3) && (y == 5)) {
-			pintarLineaRed(475, 531, 599, 416);
+			pintarLineaRed(g, 475, 531, 599, 416);
 		}else if ((x == 3) && (y == 7)) {
-			pintarLineaRed(476, 549, 569, 582);
+			pintarLineaRed(g, 476, 549, 569, 582);
 		}else if ((x == 4) && (y == 9)) {
-			pintarLineaRed(155, 383, 154, 350);
+			pintarLineaRed(g, 155, 383, 154, 350);
 		}else if ((x == 5) && (y == 6)) {
-			pintarLineaRed(627, 406, 766, 433);
+			pintarLineaRed(g, 627, 406, 766, 433);
 		}else if ((x == 6) && (y == 8)) {
-			pintarLineaRed(793, 453, 889, 511);
+			pintarLineaRed(g, 793, 453, 889, 511);
 		}else if ((x == 7) && (y == 8)) {
-			pintarLineaRed(598, 583, 889, 530);
+			pintarLineaRed(g, 598, 583, 889, 530);
 		}else if ((x == 7) && (y == 6)) {
-			pintarLineaRed(598, 582, 767, 456);
+			pintarLineaRed(g, 598, 582, 767, 456);
 		}
 	}	
 	Bitmap^ img1 = gcnew Bitmap("empresa.png");
 	g->DrawImage(img1, 279, 652, 80, 40);
 	g->DrawString("EMPRESA", gcnew System::Drawing::Font("Bernard MT Condensed", 18), Brushes::Red, 270, 625);
-	/*g->DrawString("EMPRESA", gcnew System::Drawing::Font("Bernard MT Condensed", 18), Brushes::Black, 270, 625);	
-	g->DrawString("EMPRESA", gcnew System::Drawing::Font("Bernard MT Condensed", 18), Brushes::Black, 270, 625);
-	g->DrawString("EMPRESA", gcnew System::Drawing::Font("Bernard MT Condensed", 18), Brushes::Black, 270, 625);
-	g->DrawString("EMPRESA", gcnew System::Drawing::Font("Bernard MT Condensed", 18), Brushes::Black, 270, 625);
-	g->DrawString("EMPRESA", gcnew System::Drawing::Font("Bernard MT Condensed", 18), Brushes::Black, 270, 625);
-	g->DrawString("EMPRESA", gcnew System::Drawing::Font("Bernard MT Condensed", 18), Brushes::Black, 270, 625);
-	g->DrawString("EMPRESA", gcnew System::Drawing::Font("Bernard MT Condensed", 18), Brushes::Black, 270, 625);
-	g->DrawString("EMPRESA", gcnew System::Drawing::Font("Bernard MT Condensed", 18), Brushes::Black, 270, 625);
-	g->DrawString("EMPRESA", gcnew System::Drawing::Font("Bernard MT Condensed", 18), Brushes::Black, 270, 625);*/
+
 }
 private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {
 }
