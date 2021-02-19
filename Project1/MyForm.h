@@ -266,7 +266,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	Bitmap^ img = gcnew Bitmap("mapa.jpeg");//cargar archivo de imagen
 	g->DrawImage(img, 42, 300, 900, 500);//(img , x, y, ancho, alto)
 	asignarPosiciones(g, posx, posy);
-	Bitmap^ img1 = gcnew Bitmap("empresa.png");
+	Bitmap^ img1 = gcnew Bitmap("restaurant.png");
 	g->DrawImage(img1, 279, 654, 80, 40);
 	
 }
@@ -364,7 +364,7 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, Sys
 			pintarLineaRed(g, 598, 582, 767, 456);
 		}
 	}	
-	Bitmap^ img1 = gcnew Bitmap("empresa.png");
+	Bitmap^ img1 = gcnew Bitmap("restaurant.png");
 	g->DrawImage(img1, 279, 652, 80, 40);
 	g->DrawString("GRASITAS", gcnew System::Drawing::Font("Bernard MT Condensed", 18), Brushes::Red, 270, 625);
 
