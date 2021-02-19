@@ -23,7 +23,7 @@ namespace Project1 {
 		{
 			InitializeComponent();
 			g = this->CreateGraphics();
-			mapa = gcnew Bitmap("mapa.jpeg");
+			
 		}
 	protected:
 		~MyForm()
@@ -44,29 +44,21 @@ namespace Project1 {
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Label^ label7;
-	private:
-		Graphics^ g;
-		int* posx = new int[max];
-		int* posy = new int[max];
-		Bitmap^ mapa ;
-		BufferedGraphics^ buffer;
-	private:
-		
-		/*void pintarNodoRed(int x, int y, int w, int h) {			
-			g->FillEllipse(Brushes::Red,x,y,w,h );
-		}*/
-		/*void pintarNodoBlack(int x, int y, int w, int h) {			
-			g->FillEllipse(Brushes::Black, x, y, w, h);
-		}*/
-		
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::Label^ recorrido;
 	private: System::ComponentModel::IContainer^ components;
-
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private:
+		Graphics^ g;//generar graph
+		int* posx = new int[max];//posicion x
+		int* posy = new int[max];//posicion y
+		
+		
 #pragma region Windows Form Designer generated code
 		
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->label = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->nombre = (gcnew System::Windows::Forms::Label());
@@ -80,6 +72,8 @@ namespace Project1 {
 			this->recorrido = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label
@@ -115,7 +109,6 @@ namespace Project1 {
 			this->nombre->Size = System::Drawing::Size(58, 17);
 			this->nombre->TabIndex = 3;
 			this->nombre->Text = L"Nombre";
-			
 			// 
 			// apellido
 			// 
@@ -208,7 +201,7 @@ namespace Project1 {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(461, 90);
+			this->label6->Location = System::Drawing::Point(424, 112);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(35, 13);
 			this->label6->TabIndex = 14;
@@ -217,17 +210,28 @@ namespace Project1 {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(462, 130);
+			this->label7->Location = System::Drawing::Point(425, 152);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(35, 13);
 			this->label7->TabIndex = 15;
 			this->label7->Text = L"label7";
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->AccessibleRole = System::Windows::Forms::AccessibleRole::Window;
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(40, 286);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(918, 575);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox1->TabIndex = 16;
+			this->pictureBox1->TabStop = false;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1071, 882);
+			this->ClientSize = System::Drawing::Size(1047, 882);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->recorrido);
@@ -241,10 +245,12 @@ namespace Project1 {
 			this->Controls->Add(this->nombre);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label);
+			this->Controls->Add(this->pictureBox1);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::MyForm_MouseMove);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -256,38 +262,38 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	apellido->ForeColor = Color::Black;
 	nombre->Text = generarNombre();
 	apellido->Text = generarApellido();
-	Bitmap^ img = gcnew Bitmap("mapa.jpeg");
-	g->DrawImage(img, 42, 300, 900, 500);
+	pictureBox1->Visible = false;
+	Bitmap^ img = gcnew Bitmap("mapa.jpeg");//cargar archivo de imagen
+	g->DrawImage(img, 42, 300, 900, 500);//(img , x, y, ancho, alto)
 	asignarPosiciones(g, posx, posy);
 	Bitmap^ img1 = gcnew Bitmap("empresa.png");
 	g->DrawImage(img1, 279, 654, 80, 40);
+	
 }
 private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	 srand(time(NULL));
+	srand(time(NULL));	
 }
 private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	String^ destino = comboBox1->Text;
 	int generar = GenerarCamino(destino);
-	recorrido->Text = generar.ToString();	
+	recorrido->Text = "S/."+ generar.ToString();	
 	int* arreglo = new int[max];
 	int x, y;
 	int lug=HallarDestino(destino);
-	arreglo=AlmacenarCamino(lug,startnode,pred);
+	arreglo=AlmacenarCamino(lug,startnode);
 	asignarPosiciones(g, posx, posy);
 	for (int i = max; i >=0;i--) {
 		int opc= arreglo[i];
 		switch (opc)
 		{
-		case 0: x = posx[opc]; y = posy[opc]; 
-			g->FillEllipse(Brushes::Red, x, y, w, h);
-			break;
-		case 1:x = posx[opc]; y = posy[opc];			
+		
+		case 1:
+			x = posx[opc]; y = posy[opc];			
 			g->FillEllipse(Brushes::Red, x, y, w, h);
 			g->DrawString("PLZ.GRAU", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Red, 342, 741);
 			break;
 		case 2:
-			x = posx[opc]; y = posy[opc];
-			
+			x = posx[opc]; y = posy[opc];			
 			g->FillEllipse(Brushes::Red, x, y, w, h);
 			g->DrawString("PLZ.BOLOGNESI", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Red, 88, 750);
 			break;
@@ -321,7 +327,6 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, Sys
 			x = posx[opc]; y = posy[opc];			
 			g->FillEllipse(Brushes::Red, x, y, w, h);
 			g->DrawString("PLZ.ITALIA", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Red, 881, 484);
-			
 			break;
 		case 9:
 			x = posx[opc]; y = posy[opc];			
@@ -361,7 +366,7 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, Sys
 	}	
 	Bitmap^ img1 = gcnew Bitmap("empresa.png");
 	g->DrawImage(img1, 279, 652, 80, 40);
-	g->DrawString("EMPRESA", gcnew System::Drawing::Font("Bernard MT Condensed", 18), Brushes::Red, 270, 625);
+	g->DrawString("GRASITAS", gcnew System::Drawing::Font("Bernard MT Condensed", 18), Brushes::Red, 270, 625);
 
 }
 private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -369,8 +374,8 @@ private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void MyForm_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-		this->label6->Text = e->X.ToString();
-		this->label7->Text = e->Y.ToString();	
+	this->label6->Text = e->X.ToString();
+	this->label7->Text = e->Y.ToString();	
 }
 };
 }

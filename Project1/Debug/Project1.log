@@ -3,7 +3,7 @@ C:\Users\ANDERSON\Desktop\CICLO 3\ESTRUCTURA\PROJECT-ESTRUCTURAS\Project1\nombre
 C:\Users\ANDERSON\Desktop\CICLO 3\ESTRUCTURA\PROJECT-ESTRUCTURAS\Project1\nombresRepartidor.h(76,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
 C:\Users\ANDERSON\Desktop\CICLO 3\ESTRUCTURA\PROJECT-ESTRUCTURAS\Project1\Grafo.h(6,1): warning C4005: 'INFINITY': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\corecrt_math.h(90): message : vea la definición anterior de 'INFINITY'
-C:\Users\ANDERSON\Desktop\CICLO 3\ESTRUCTURA\PROJECT-ESTRUCTURAS\Project1\MyForm.h(266,13): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-C:\Users\ANDERSON\Desktop\CICLO 3\ESTRUCTURA\PROJECT-ESTRUCTURAS\Project1\Grafo.h(33): warning C4715: 'HallarDestino': no todas las rutas de acceso de control devuelven un valor
+C:\Users\ANDERSON\Desktop\CICLO 3\ESTRUCTURA\PROJECT-ESTRUCTURAS\Project1\MyForm.h(274,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\ANDERSON\Desktop\CICLO 3\ESTRUCTURA\PROJECT-ESTRUCTURAS\Project1\Grafo.h(34): warning C4715: 'HallarDestino': no todas las rutas de acceso de control devuelven un valor
   MyForm.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
   Project1.vcxproj -> C:\Users\ANDERSON\Desktop\CICLO 3\ESTRUCTURA\PROJECT-ESTRUCTURAS\Project1\Debug\Project1.exe
