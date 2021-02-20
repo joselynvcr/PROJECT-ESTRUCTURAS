@@ -5,6 +5,7 @@
 #include "nombresRepartidor.h"
 #include "Grafo.h"
 #include "Mapa.h"
+#include "Pedido.h"
 
 using namespace std;
 
@@ -39,6 +40,9 @@ namespace Project1 {
 	private:
 		Graphics^ g;//generar graph
 		int* posx = new int[max];//posicion x
+		int* posy = new int[max];//posicion y
+		double precio_Producto;
+		int generar;
 	private: System::Windows::Forms::Panel^ panelMenu;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Panel^ panelLogo;
@@ -74,14 +78,9 @@ namespace Project1 {
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Label^ total;
+	private: System::Windows::Forms::Label^ label10;
 
-
-
-
-
-	int* posy = new int[max];//posicion y
-		
-		
 #pragma region Windows Form Designer generated code
 		
 		void InitializeComponent(void)
@@ -118,6 +117,8 @@ namespace Project1 {
 			this->txtorigen = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->total = (gcnew System::Windows::Forms::Label());
 			this->panelMenu->SuspendLayout();
 			this->panelLogo->SuspendLayout();
 			this->panelTitulo->SuspendLayout();
@@ -420,6 +421,8 @@ namespace Project1 {
 			// 
 			// panel1
 			// 
+			this->panel1->Controls->Add(this->total);
+			this->panel1->Controls->Add(this->label10);
 			this->panel1->Controls->Add(this->precioDelivery);
 			this->panel1->Controls->Add(this->precioProducto);
 			this->panel1->Controls->Add(this->label13);
@@ -533,6 +536,30 @@ namespace Project1 {
 			this->pictureBox1->TabIndex = 5;
 			this->pictureBox1->TabStop = false;
 			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label10->Location = System::Drawing::Point(822, 120);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(37, 15);
+			this->label10->TabIndex = 9;
+			this->label10->Text = L"Total:";
+			// 
+			// total
+			// 
+			this->total->Anchor = System::Windows::Forms::AnchorStyles::Right;
+			this->total->AutoSize = true;
+			this->total->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->total->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->total->Location = System::Drawing::Point(957, 119);
+			this->total->Name = L"total";
+			this->total->Size = System::Drawing::Size(42, 15);
+			this->total->TabIndex = 10;
+			this->total->Text = L"Precio";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -566,20 +593,6 @@ namespace Project1 {
 private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	srand(time(NULL));	
 }
-private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-	//String^ destino = comboBox1->Text;
-	//int generar = GenerarCamino(destino);
-	//recorrido->Text = "S/."+ generar.ToString();	
-	int* arreglo = new int[max];
-	//int lugarDestino=HallarDestino(destino);
-	//arreglo=AlmacenarCamino(lugarDestino,startnode);
-	asignarPosiciones(g, posx, posy);
-	LetraNodoDijkstra(g, posx, posy, arreglo);
-	Bitmap^ img1 = gcnew Bitmap("restaurant.png");
-	g->DrawImage(img1, 279, 652, 80, 40);
-	g->DrawString("GRASITAS", gcnew System::Drawing::Font("Bernard MT Condensed", 18), Brushes::Red, 270, 625);
-
-}
 private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -588,31 +601,52 @@ private: System::Void MyForm_MouseMove(System::Object^ sender, System::Windows::
 		
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	//Cambiar de color a labels al hacer clic a Generar Orden
 	nombre->ForeColor = Color::Black;
 	apellido->ForeColor = Color::Black;
 	txtorigen->ForeColor = Color::Black;
+	transporte->ForeColor = Color::Black;
+	codigo->ForeColor = Color::Black;
+	producto->ForeColor = Color::Black;
+	precioProducto->ForeColor = Color::Black;
+	total->ForeColor = Color::Black;
+	//Agregar valores a labels
 	nombre->Text = generarNombre();
 	apellido->Text = generarApellido();
-	pictureBox1->Visible = false;
+	transporte->Text = generarTransporte();
+	codigo->Text = generarCodigo().ToString();
+	producto->Text = generarProducto();
+	precio_Producto = generarPrecio();
+
+	precioProducto->Text = "S/." + precio_Producto.ToString();
+	total->Text = "S/." + (generar + precio_Producto);
+
+	pictureBox1->Visible = false;//haver invisible mapa PictureBox
 	Bitmap^ img = gcnew Bitmap("mapa.jpeg");//cargar archivo de imagen
 	g->DrawImage(img, 370, 300, 900, 500);//(img , x, y, ancho, alto)
 	asignarPosiciones(g, posx, posy);
 	Bitmap^ img1 = gcnew Bitmap("restaurant.png");
-	g->DrawImage(img1, 585, 654, 80, 40);
-	
+	g->DrawImage(img1, 595, 654, 80, 40);
 }
 private: System::Void comboBox1_SelectedIndexChanged_1(System::Object^ sender, System::EventArgs^ e) {
 	precioDelivery->ForeColor = Color::Black;
 	String^ destino = comboBox1->Text;
-	int generar = GenerarCamino(destino);
+	generar = GenerarCamino(destino);
 	precioDelivery->Text = "S/."+ generar.ToString();
+	double MontoTotal = generar + precio_Producto;
+	total->Text = "S/." + (generar + precio_Producto);
+
 	int* arreglo = new int[max];
 	int lugarDestino=HallarDestino(destino);
+	//Llamar a la Libreria Grafo.h AlmacenarCamino
 	arreglo=AlmacenarCamino(lugarDestino,startnode);
+	//Llama a la libreria Mapa.h asignarPosiciones
 	asignarPosiciones(g, posx, posy);
 	LetraNodoDijkstra(g, posx, posy, arreglo);
+	//Almacenar imagen 
 	Bitmap^ img1 = gcnew Bitmap("restaurant.png");
-	g->DrawImage(img1, 585, 652, 80, 40);
+	g->DrawImage(img1, 595, 652, 80, 40);
 	g->DrawString("GRASITAS", gcnew System::Drawing::Font("Bernard MT Condensed", 18), Brushes::Red, 590, 625);
 }
 };

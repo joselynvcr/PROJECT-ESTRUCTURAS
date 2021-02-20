@@ -71,3 +71,24 @@ String^ generarApellido() {
 	}
 	return apellido;
 }
+String^ generarTransporte() {
+	int opc;
+	String^ transporte;
+	opc = rand() % (4 - 1 + 1) + 1;
+	switch (opc)
+	{
+	case 1:
+		transporte = "Bicicleta";
+		break;
+	case 2:
+		transporte = "Moto";
+		break;
+	case 3:
+		transporte = "Scooter";
+		break;
+	case 4:
+		transporte = "Bicimoto";
+		break;
+	}
+	return transporte;
+}
