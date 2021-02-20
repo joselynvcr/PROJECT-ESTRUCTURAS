@@ -29,31 +29,31 @@ void PintarTodoElMapa(Graphics^ g,int pos1[], int pos2[]){
 
 }
 void asignarPosiciones(Graphics^ g, int *posx,int *posy) {
-	posx[0] = 300;	posy[0] = 652;
-	posx[1] = 406;	posy[1] = 720;
-	posx[2] = 188;	posy[2] = 735;
-	posx[3] = 448;	posy[3] = 520;
-	posx[4] = 142;	posy[4] = 385;
-	posx[5] = 597;	posy[5] = 380;
-	posx[6] = 765;	posy[6] = 422;
-	posx[7] = 568;	posy[7] = 565;
-	posx[8] = 888;	posy[8] = 500;
-	posx[9] = 138;	posy[9] = 310;
+	posx[0] = 705;	posy[0] = 652;
+	posx[1] = 726;	posy[1] = 720;
+	posx[2] = 508;	posy[2] = 735;
+	posx[3] = 768;	posy[3] = 520;
+	posx[4] = 462;	posy[4] = 385;
+	posx[5] = 917;	posy[5] = 380;
+	posx[6] = 1085;	posy[6] = 422;
+	posx[7] = 888;	posy[7] = 565;
+	posx[8] = 1208;	posy[8] = 500;
+	posx[9] = 458;	posy[9] = 310;
 
 	PintarTodoElMapa(g,posx, posy);
-	g->DrawString("GRASITAS", gcnew System::Drawing::Font("Bernard MT Condensed", 18), Brushes::Black, 270, 625);
-	g->DrawString("PLZ.RAMÓN CASTILLA", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 174, 320);
-	g->DrawString("PLZ.2 DE MAYO", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 55, 398);
-	g->DrawString("PLZ.SAN MARTÍN", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 411, 499);
-	g->DrawString("PLZ.BOLOGNESI", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 88, 750);
-	g->DrawString("PLZ.ARMAS", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 582, 360);
-	g->DrawString("PLZ.LUIS AVELINO", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 551, 605);
-	g->DrawString("PLZ.ITALIA", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 881, 484);
-	g->DrawString("PLZ.GRAU", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 342, 741);
-	g->DrawString("PLZ.BOLIVAR", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 755, 403);
+	g->DrawString("GRASITAS", gcnew System::Drawing::Font("Bernard MT Condensed", 18), Brushes::Black, 670, 625);
+	g->DrawString("PLZ.RAMÓN CASTILLA", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 574, 320);
+	g->DrawString("PLZ.2 DE MAYO", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 455, 398);
+	g->DrawString("PLZ.SAN MARTÍN", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 811, 499);
+	g->DrawString("PLZ.BOLOGNESI", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 488, 750);
+	g->DrawString("PLZ.ARMAS", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 582, 760);
+	g->DrawString("PLZ.LUIS AVELINO", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 951, 605);
+	g->DrawString("PLZ.ITALIA", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 1281, 484);
+	g->DrawString("PLZ.GRAU", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 742, 741);
+	g->DrawString("PLZ.BOLIVAR", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Black, 1155, 403);
 }
 
-void asignarLetraNodoRojo(Graphics^ g, int* posx, int* posy, int* arreglo) {
+void LetraNodoDijkstra(Graphics^ g, int* posx, int* posy, int* arreglo) {
 	int x, y;
 	for (int i = max; i >= 0; i--) {
 		int opc = arreglo[i];
