@@ -69,12 +69,14 @@ namespace Project1 {
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::ComboBox^ comboBox1;
 	private: System::Windows::Forms::Label^ label11;
-	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::Label^ txtorigen;
+
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Label^ Y;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
-	private: System::Windows::Forms::Label^ X;
+
+
 
 
 	int* posy = new int[max];//posicion y
@@ -109,19 +111,19 @@ namespace Project1 {
 			this->apellido = (gcnew System::Windows::Forms::Label());
 			this->transporte = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->Y = (gcnew System::Windows::Forms::Label());
-			this->X = (gcnew System::Windows::Forms::Label());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->label11 = (gcnew System::Windows::Forms::Label());
-			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->txtorigen = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->panelMenu->SuspendLayout();
 			this->panelLogo->SuspendLayout();
 			this->panelTitulo->SuspendLayout();
 			this->panel1->SuspendLayout();
 			this->panel2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panelMenu
@@ -418,8 +420,6 @@ namespace Project1 {
 			// 
 			// panel1
 			// 
-			this->panel1->Controls->Add(this->Y);
-			this->panel1->Controls->Add(this->X);
 			this->panel1->Controls->Add(this->precioDelivery);
 			this->panel1->Controls->Add(this->precioProducto);
 			this->panel1->Controls->Add(this->label13);
@@ -443,30 +443,12 @@ namespace Project1 {
 			this->panel1->Size = System::Drawing::Size(1085, 143);
 			this->panel1->TabIndex = 3;
 			// 
-			// Y
-			// 
-			this->Y->AutoSize = true;
-			this->Y->Location = System::Drawing::Point(695, 80);
-			this->Y->Name = L"Y";
-			this->Y->Size = System::Drawing::Size(41, 13);
-			this->Y->TabIndex = 10;
-			this->Y->Text = L"label17";
-			// 
-			// X
-			// 
-			this->X->AutoSize = true;
-			this->X->Location = System::Drawing::Point(695, 46);
-			this->X->Name = L"X";
-			this->X->Size = System::Drawing::Size(41, 13);
-			this->X->TabIndex = 9;
-			this->X->Text = L"label16";
-			// 
 			// panel2
 			// 
 			this->panel2->Controls->Add(this->button2);
 			this->panel2->Controls->Add(this->comboBox1);
 			this->panel2->Controls->Add(this->label11);
-			this->panel2->Controls->Add(this->label10);
+			this->panel2->Controls->Add(this->txtorigen);
 			this->panel2->Controls->Add(this->label7);
 			this->panel2->Dock = System::Windows::Forms::DockStyle::Top;
 			this->panel2->Location = System::Drawing::Point(220, 223);
@@ -517,18 +499,18 @@ namespace Project1 {
 			this->label11->TabIndex = 6;
 			this->label11->Text = L"Destino:";
 			// 
-			// label10
+			// txtorigen
 			// 
-			this->label10->Anchor = System::Windows::Forms::AnchorStyles::Left;
-			this->label10->AutoSize = true;
-			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->txtorigen->Anchor = System::Windows::Forms::AnchorStyles::Left;
+			this->txtorigen->AutoSize = true;
+			this->txtorigen->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label10->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-			this->label10->Location = System::Drawing::Point(213, 29);
-			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(122, 15);
-			this->label10->TabIndex = 5;
-			this->label10->Text = L"Restaurante Grasitas";
+			this->txtorigen->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->txtorigen->Location = System::Drawing::Point(213, 29);
+			this->txtorigen->Name = L"txtorigen";
+			this->txtorigen->Size = System::Drawing::Size(122, 15);
+			this->txtorigen->TabIndex = 5;
+			this->txtorigen->Text = L"Restaurante Grasitas";
 			// 
 			// label7
 			// 
@@ -541,11 +523,22 @@ namespace Project1 {
 			this->label7->TabIndex = 0;
 			this->label7->Text = L"Origen: ";
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(370, 300);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(900, 500);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox1->TabIndex = 5;
+			this->pictureBox1->TabStop = false;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1305, 856);
+			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->panel2);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->panelTitulo);
@@ -563,6 +556,7 @@ namespace Project1 {
 			this->panel1->PerformLayout();
 			this->panel2->ResumeLayout(false);
 			this->panel2->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -591,23 +585,24 @@ private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void MyForm_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	this->X->Text = e->X.ToString();
-	this->Y->Text = e->Y.ToString();	
+		
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 	nombre->ForeColor = Color::Black;
 	apellido->ForeColor = Color::Black;
+	txtorigen->ForeColor = Color::Black;
 	nombre->Text = generarNombre();
 	apellido->Text = generarApellido();
-	//pictureBox1->Visible = false;
+	pictureBox1->Visible = false;
 	Bitmap^ img = gcnew Bitmap("mapa.jpeg");//cargar archivo de imagen
 	g->DrawImage(img, 370, 300, 900, 500);//(img , x, y, ancho, alto)
 	asignarPosiciones(g, posx, posy);
 	Bitmap^ img1 = gcnew Bitmap("restaurant.png");
-	g->DrawImage(img1, 679, 654, 80, 40);
-	//g->DrawImage(img1, 279, 654, 80, 40);
+	g->DrawImage(img1, 585, 654, 80, 40);
+	
 }
 private: System::Void comboBox1_SelectedIndexChanged_1(System::Object^ sender, System::EventArgs^ e) {
+	precioDelivery->ForeColor = Color::Black;
 	String^ destino = comboBox1->Text;
 	int generar = GenerarCamino(destino);
 	precioDelivery->Text = "S/."+ generar.ToString();
@@ -617,8 +612,8 @@ private: System::Void comboBox1_SelectedIndexChanged_1(System::Object^ sender, S
 	asignarPosiciones(g, posx, posy);
 	LetraNodoDijkstra(g, posx, posy, arreglo);
 	Bitmap^ img1 = gcnew Bitmap("restaurant.png");
-	g->DrawImage(img1, 679, 652, 80, 40);
-	g->DrawString("GRASITAS", gcnew System::Drawing::Font("Bernard MT Condensed", 18), Brushes::Red, 670, 625);
+	g->DrawImage(img1, 585, 652, 80, 40);
+	g->DrawString("GRASITAS", gcnew System::Drawing::Font("Bernard MT Condensed", 18), Brushes::Red, 590, 625);
 }
 };
 }
