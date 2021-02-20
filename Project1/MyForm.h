@@ -220,9 +220,9 @@ namespace Project1 {
 			// 
 			this->pictureBox1->AccessibleRole = System::Windows::Forms::AccessibleRole::Window;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(40, 286);
+			this->pictureBox1->Location = System::Drawing::Point(42, 300);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(918, 575);
+			this->pictureBox1->Size = System::Drawing::Size(900, 500);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 16;
 			this->pictureBox1->TabStop = false;
@@ -268,7 +268,6 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	asignarPosiciones(g, posx, posy);
 	Bitmap^ img1 = gcnew Bitmap("restaurant.png");
 	g->DrawImage(img1, 279, 654, 80, 40);
-	
 }
 private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	srand(time(NULL));	
@@ -278,92 +277,10 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, Sys
 	int generar = GenerarCamino(destino);
 	recorrido->Text = "S/."+ generar.ToString();	
 	int* arreglo = new int[max];
-	int x, y;
-	int lug=HallarDestino(destino);
-	arreglo=AlmacenarCamino(lug,startnode);
+	int lugarDestino=HallarDestino(destino);
+	arreglo=AlmacenarCamino(lugarDestino,startnode);
 	asignarPosiciones(g, posx, posy);
-	for (int i = max; i >=0;i--) {
-		int opc= arreglo[i];
-		switch (opc)
-		{
-		
-		case 1:
-			x = posx[opc]; y = posy[opc];			
-			g->FillEllipse(Brushes::Red, x, y, w, h);
-			g->DrawString("PLZ.GRAU", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Red, 342, 741);
-			break;
-		case 2:
-			x = posx[opc]; y = posy[opc];			
-			g->FillEllipse(Brushes::Red, x, y, w, h);
-			g->DrawString("PLZ.BOLOGNESI", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Red, 88, 750);
-			break;
-		case 3:
-			x = posx[opc]; y = posy[opc];			
-			g->FillEllipse(Brushes::Red, x, y, w, h);
-			g->DrawString("PLZ.SAN MARTÍN", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Red, 411, 499);
-			break;
-		case 4:
-			x = posx[opc]; y = posy[opc];			
-			g->FillEllipse(Brushes::Red, x, y, w, h);
-			g->DrawString("PLZ.2 DE MAYO", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Red, 55, 398);
-			
-			break;
-		case 5:
-			x = posx[opc]; y = posy[opc];			
-			g->FillEllipse(Brushes::Red, x, y, w, h);
-			g->DrawString("PLZ.ARMAS", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Red, 582, 360);
-			break;
-		case 6:
-			x = posx[opc]; y = posy[opc];			
-			g->FillEllipse(Brushes::Red, x, y, w, h);
-			g->DrawString("PLZ.BOLIVAR", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Red, 755, 403);
-			break;
-		case 7:
-			x = posx[opc]; y = posy[opc];			
-			g->FillEllipse(Brushes::Red, x, y, w, h);
-			g->DrawString("PLZ.LUIS AVELINO", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Red, 551, 605);
-			break;
-		case 8:
-			x = posx[opc]; y = posy[opc];			
-			g->FillEllipse(Brushes::Red, x, y, w, h);
-			g->DrawString("PLZ.ITALIA", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Red, 881, 484);
-			break;
-		case 9:
-			x = posx[opc]; y = posy[opc];			
-			g->FillEllipse(Brushes::Red, x, y, w, h);
-			g->DrawString("PLZ.RAMÓN CASTILLA", gcnew System::Drawing::Font("Bernard MT Condensed", 11), Brushes::Red, 174, 320);
-			break;
-		}
-		
-	}	
-	for (int i = 4; i >0;i--) {
-		//5 3 0 inf inf		
-		int x=arreglo[i];
-		int y=arreglo[i -1];		
-		if ((x == 0) && (y == 1)) {
-			pintarLineaRed(g,329, 682, 407, 737);
-		}else if ((x == 0) && (y == 2)) {
-			pintarLineaRed(g, 301, 684, 215, 745);
-		}else if ((x == 0) && (y == 3)) {
-			pintarLineaRed(g, 327, 661, 450, 554);
-		}else if ((x == 3) && (y == 4)) {
-			pintarLineaRed(g, 172, 409, 450, 534);
-		}else if ((x == 3) && (y == 5)) {
-			pintarLineaRed(g, 475, 531, 599, 416);
-		}else if ((x == 3) && (y == 7)) {
-			pintarLineaRed(g, 476, 549, 569, 582);
-		}else if ((x == 4) && (y == 9)) {
-			pintarLineaRed(g, 155, 383, 154, 350);
-		}else if ((x == 5) && (y == 6)) {
-			pintarLineaRed(g, 627, 406, 766, 433);
-		}else if ((x == 6) && (y == 8)) {
-			pintarLineaRed(g, 793, 453, 889, 511);
-		}else if ((x == 7) && (y == 8)) {
-			pintarLineaRed(g, 598, 583, 889, 530);
-		}else if ((x == 7) && (y == 6)) {
-			pintarLineaRed(g, 598, 582, 767, 456);
-		}
-	}	
+	asignarLetraNodoRojo(g, posx, posy, arreglo);
 	Bitmap^ img1 = gcnew Bitmap("restaurant.png");
 	g->DrawImage(img1, 279, 652, 80, 40);
 	g->DrawString("GRASITAS", gcnew System::Drawing::Font("Bernard MT Condensed", 18), Brushes::Red, 270, 625);
