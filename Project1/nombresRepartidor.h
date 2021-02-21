@@ -71,35 +71,24 @@ String^ generarApellido() {
 	}
 	return apellido;
 }
-String^ generarProducto() {
-
-	srand(time(NULL));
+String^ generarTransporte() {
 	int opc;
-	String^ producto;
-	opc = rand() % (7 - 1 + 1) + 1;
+	String^ transporte;
+	opc = rand() % (4 - 1 + 1) + 1;
 	switch (opc)
 	{
 	case 1:
-		producto = "Pollito a la brasa";
+		transporte = "Bicicleta";
 		break;
 	case 2:
-		producto = "Mostrito";
+		transporte = "Moto";
 		break;
 	case 3:
-		producto = "Kentucky";
+		transporte = "Scooter";
 		break;
 	case 4:
-		producto = "Popeyes";
-		break;
-	case 5:
-		producto = "Lomo saltado";
-		break;
-	case 6:
-		producto = "Aeropuerto";
-		break;
-	case 7:
-		producto = "Tallarines Verdes";
+		transporte = "Bicimoto";
 		break;
 	}
-	return producto;
+	return transporte;
 }

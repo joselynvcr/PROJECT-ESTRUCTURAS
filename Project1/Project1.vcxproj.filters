@@ -28,5 +28,8 @@
     <ClInclude Include="Mapa.h">
       <Filter>Archivos de origen</Filter>
     </ClInclude>
+    <ClInclude Include="Pedido.h">
+      <Filter>Archivos de origen</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
