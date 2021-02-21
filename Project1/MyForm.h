@@ -615,7 +615,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	nombre->Text = generarNombre();
 	apellido->Text = generarApellido();
 	transporte->Text = generarTransporte();
-	codigo->Text = generarCodigo().ToString();
+	codigo->Text = generarCodigoOrden().ToString();
 	producto->Text = generarProducto();
 	precio_Producto = generarPrecio();
 

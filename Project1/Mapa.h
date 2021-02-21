@@ -14,7 +14,7 @@ void PintarTodoElMapa(Graphics^ g,int pos1[], int pos2[]){
 		g->FillEllipse(Brushes::Black, pos1[i], pos2[i], w, h);
 	}
 	//					x,   y   ,x2 , y2
-	pintarLineaBlack(g,649, 682, 727, 737);
+	pintarLineaBlack(g, 649, 682, 727, 737);
 	pintarLineaBlack(g, 621, 684, 535, 745);
 	pintarLineaBlack(g, 647, 661, 770, 554);
 	pintarLineaBlack(g, 492, 409, 770, 534);

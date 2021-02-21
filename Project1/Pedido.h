@@ -7,7 +7,12 @@
 using namespace System;
 using namespace std;
 
-int generarCodigo() {
+int generarCodigoOrden() {
+	srand(time(NULL));
+	int cod = rand() % (99999 - 1000 + 1) + 1000;
+	return cod;
+}
+int generarCodigoProducto() {
 	srand(time(NULL));
 	int opc;
 	int codigo;
@@ -42,7 +47,7 @@ int generarCodigo() {
 String^ generarProducto() {
 	String^ producto;
 	
-	switch (generarCodigo())
+	switch (generarCodigoProducto())
 	{
 	case 00256:
 		producto = "Pollo frito";
@@ -70,7 +75,7 @@ String^ generarProducto() {
 }
 double generarPrecio() {
 	double precio;
-	switch (generarCodigo())
+	switch (generarCodigoProducto())
 	{
 	case 00256:
 		precio = 45.50;
