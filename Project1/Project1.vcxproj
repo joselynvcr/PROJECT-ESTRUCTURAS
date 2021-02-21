@@ -129,6 +129,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="nombresRepartidor.h" />
+    <ClInclude Include="Pedido.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">
