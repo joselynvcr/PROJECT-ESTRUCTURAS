@@ -143,7 +143,7 @@ void LetraNodoDijkstra(Graphics^ g, int* posx, int* posy, int* arreglo) {
 			pintarLineaRed(g, 918, 583, 1209, 530);
 		}
 		else if ((x == 7) && (y == 6)) {
-			pintarLineaRed(g, 520, 735, 480, 426);
+			pintarLineaRed(g, 918, 582, 1087, 456);
 		}
 	}
 }

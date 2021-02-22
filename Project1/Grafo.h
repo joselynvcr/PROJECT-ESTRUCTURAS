@@ -45,7 +45,7 @@ int GenerarCamino(String^ destino) {
 	{	6	,	0	,	0	,	0	,	7	,	5	,	0	,	3	,	0	,	0	}	,
 	{	0	,	0	,	10	,	7	,	0	,	0	,	0	,	0	,	0	,	3	}	,
 	{	0	,	0	,	0	,	5	,	0	,	0	,	3	,	0	,	0	,	0	}	,
-	{	0	,	0	,	0	,	0	,	3	,	0	,	0	,	4	,	0	,	0	}	,
+	{	0	,	0	,	0	,	0	,	3	,	0	,	0	,	4	,	3	,	0	}	,
 	{	0	,	0	,	0	,	3	,	0	,	0	,	4	,	0	,	8	,	0	}	,
 	{	0	,	0	,	0	,	0	,	0	,	0	,	3	,	8	,	0	,	0	}	,
 	{	0	,	0	,	0	,	0	,	3	,	0	,	0	,	0	,	0	,	0	} };
@@ -82,7 +82,7 @@ int dijkstra(int G[max][max], int n, int startnode, int lugar)
 	visited[startnode] = 1;
 	count = 1;
 
-	while (count < n - 1)
+	while (count < n-1 )
 	{
 		mindistancia = INFINITY;
 		for (i = 0; i < n; i++)
